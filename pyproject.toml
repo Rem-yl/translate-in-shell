@@ -1,0 +1,19 @@
+[project]
+name = "translate"
+version = "0.1.0"
+description = "Interactive translation tool for Chinese and English"
+readme = "README.md"
+authors = [
+    { name = "ley", email = "ley@opera.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "deep-translator>=1.11.4",
+]
+
+[project.scripts]
+translate = "translate.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
