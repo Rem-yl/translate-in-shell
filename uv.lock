@@ -133,10 +133,14 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "deep-translator" },
+    { name = "requests" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "deep-translator", specifier = ">=1.11.4" }]
+requires-dist = [
+    { name = "deep-translator", specifier = ">=1.11.4" },
+    { name = "requests", specifier = ">=2.31.0" },
+]
 
 [[package]]
 name = "typing-extensions"

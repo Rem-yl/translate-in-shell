@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "deep-translator>=1.11.4",
+    "requests>=2.31.0",
 ]
 
 [project.scripts]
