@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from deep_translator import GoogleTranslator
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
 
 
 class TranslationCache:
@@ -238,11 +240,14 @@ def main():
     print(f"Cache: {cache_info['path']}")
     print(f"Loaded {cache_info['entries']} cached translation(s)\n")
 
+    # Create a completer for common exit commands
+    exit_completer = WordCompleter(['exit', 'quit', 'q'], ignore_case=True)
+
     try:
         while True:
             try:
-                # Get user input
-                user_input = input(">>> ").strip()
+                # Get user input with full line editing support
+                user_input = prompt(">>> ", completer=exit_completer).strip()
 
                 # Check for exit commands
                 if user_input.lower() in ['exit', 'quit', 'q']:
